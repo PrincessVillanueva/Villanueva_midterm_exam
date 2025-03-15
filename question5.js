@@ -1,12 +1,11 @@
 import express from 'express';
 import { Sequelize, DataTypes } from 'sequelize';
-import sequelize from './config.js';  // Import your Sequelize connection
+import sequelize from './config.js';  //Import Sequelize connection
 
-// Initialize Express App
 const app = express();
 const port = 3000;
 
-// Define User Model
+//Define User Model
 const User = sequelize.define('User', {
   id: {
     type: DataTypes.INTEGER,
@@ -33,7 +32,7 @@ const User = sequelize.define('User', {
 
 // Sync Model with Database
 sequelize.sync({ force: false })
-  .then(() => console.log('✅ Users Table Synced'))
+  .then(() => console.log('Users Table Synced'))
   .catch(err => console.error('Sync Failed:', err));
 
 // Define /users Route
@@ -49,5 +48,5 @@ app.get('/users', async (req, res) => {
 
 // Start Server
 app.listen(port, () => {
-  console.log(`🚀 Server running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });

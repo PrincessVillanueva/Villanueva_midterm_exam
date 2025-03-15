@@ -1,4 +1,4 @@
-// Load Materialize CSS dynamically
+//created the ui here, will add the index.html to test if it works
 const materialCSS = document.createElement("link");
 materialCSS.rel = "stylesheet";
 materialCSS.href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css";
@@ -9,12 +9,12 @@ materialIcons.rel = "stylesheet";
 materialIcons.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
 document.head.appendChild(materialIcons);
 
-// Create main container
+//create main container
 const appContainer = document.createElement("div");
 appContainer.className = "container";
 document.body.appendChild(appContainer);
 
-// Create card
+//create card
 const card = document.createElement("div");
 card.className = "card";
 appContainer.appendChild(card);
@@ -23,19 +23,19 @@ const cardContent = document.createElement("div");
 cardContent.className = "card-content";
 card.appendChild(cardContent);
 
-// Create heading
+//create heading
 const heading = document.createElement("h3");
 heading.className = "center-align";
 heading.innerText = "TODO LIST";
 cardContent.appendChild(heading);
 
-// Create form
+//create form
 const form = document.createElement("form");
 form.id = "todo-form";
 form.className = "row";
 cardContent.appendChild(form);
 
-// Create task name input
+//create task name input
 const taskNameInput = document.createElement("input");
 taskNameInput.type = "text";
 taskNameInput.id = "task-name";
@@ -43,30 +43,30 @@ taskNameInput.placeholder = "Enter Task Name";
 taskNameInput.className = "input-field col s12";
 form.appendChild(taskNameInput);
 
-// Create task description input
+//create task description input
 const taskDescInput = document.createElement("textarea");
 taskDescInput.id = "task-desc";
 taskDescInput.placeholder = "Enter Task Description";
 taskDescInput.className = "materialize-textarea input-field col s12";
 form.appendChild(taskDescInput);
 
-// Create add button
+//create add button
 const addButton = document.createElement("button");
 addButton.type = "submit";
 addButton.className = "btn waves-effect waves-light col s12";
 addButton.innerHTML = '<i class="material-icons">add</i> Add Task';
 form.appendChild(addButton);
 
-// Create task list
+//create task list
 const taskList = document.createElement("ul");
 taskList.className = "collection";
 cardContent.appendChild(taskList);
 
-// Task array
+//task array
 let tasks = [];
 let taskId = 1;
 
-// Task class
+//task class
 class Task {
     constructor(id, name, description) {
         this.id = id;
@@ -75,7 +75,7 @@ class Task {
     }
 }
 
-// Function to add a task
+//add a task
 const addTask = (name, description) => {
     if (!name.trim() || !description.trim()) {
         alert("Task name and description cannot be empty.");
@@ -87,7 +87,7 @@ const addTask = (name, description) => {
     updateTaskList();
 };
 
-// Function to update task list
+//function to update task list
 const updateTaskList = () => {
     taskList.innerHTML = "";
 
@@ -103,13 +103,13 @@ const updateTaskList = () => {
     });
 };
 
-// Function to delete a task
+//function to delete a task
 const deleteTask = (id) => {
     tasks = tasks.filter((task) => task.id !== id);
     updateTaskList();
 };
 
-// Function to edit a task
+//function to edit a task
 const editTask = (id) => {
     const task = tasks.find((task) => task.id === id);
     if (task) {
@@ -124,7 +124,7 @@ const editTask = (id) => {
     }
 };
 
-// Event listener for form submission
+//for form submission
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     addTask(taskNameInput.value, taskDescInput.value);
