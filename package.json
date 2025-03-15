@@ -16,5 +16,10 @@
     "url": "https://github.com/PrincessVillanueva/Villanueva_midterm_exam/issues"
   },
   "homepage": "https://github.com/PrincessVillanueva/Villanueva_midterm_exam#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.13.0",
+    "sequelize": "^6.37.6"
+  }
 }
